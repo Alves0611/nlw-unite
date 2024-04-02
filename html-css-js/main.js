@@ -63,11 +63,11 @@ let participants = [
 
 const createNewParticipant = (participant) => {
     const registrationDate = dayjs(Date.now())
-    .to(participant.registrationDate)
-  
+        .to(participant.registrationDate)
+
     const dataCheckIn = dayjs(Date.now())
-    .to(participant.dataCheckIn)
-    
+        .to(participant.dataCheckIn)
+
     return `
     <tr>
       <td>
@@ -83,4 +83,17 @@ const createNewParticipant = (participant) => {
       <td>${dataCheckIn}</td>
     </tr>
     `
-  }
+}
+
+const updateList = (participants) => {
+    let output = ""
+    for (let participant of participants) {
+        output = output + createNewParticipant(participant)
+    }
+
+    document
+        .querySelector('tbody')
+        .innerHTML = output
+}
+
+updateList(participants)
