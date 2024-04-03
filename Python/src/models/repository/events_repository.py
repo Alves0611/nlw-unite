@@ -2,7 +2,7 @@ from typing import Dict
 from src.models.settings.connection import db_connection_handler
 from src.models.entities.events import Events
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm.exc import noResultFound
+from sqlalchemy.orm.exc import NoResultFound
 
 
 class EventsRepository:
@@ -36,5 +36,5 @@ class EventsRepository:
                         .one()
                 )
                 return event
-            except noResultFound:
+            except NoResultFound:
                 return None
